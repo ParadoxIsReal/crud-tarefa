@@ -1,0 +1,16 @@
+{
+  "name": "crud-tarefas",
+  "version": "1.0.0",
+  "description": "crud de tarefas",
+  "license": "ISC",
+  "author": "Ronaldo",
+  "type": "module",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "node main.mjs"
+  },
+  "dependencies": {
+    "crypto": "1.0.1",
+    "crypto-browserify": "3.12.1"
+  }
+}
