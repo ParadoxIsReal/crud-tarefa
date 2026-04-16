@@ -26,7 +26,7 @@ export class TarefaServico {
     const erros = Tarefa.validar(dados);
     if (erros.length) throw new Error(erros.join(' | '));
     const lista = this.listar().map(u =>
-    u.id === id ? { ... u, ... dados, id } : u
+    u.id === id ? { ...u, ...dados, id } : u
     );
     localStorage.setItem(KEY, JSON.stringify(lista));
     return lista.find(u => u.id === id);
