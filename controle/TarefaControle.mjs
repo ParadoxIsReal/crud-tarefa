@@ -12,8 +12,6 @@ export function renderTabela() {
  <td>${u.descricao}</td>
  <td>${u.concluida ? 'Sim' : 'Não'}</td>
  <td>
- ${!u.concluida ? `<button class="btn btn-sm btn-outline-success me-1"
- onclick="marcarConcluida('${u.id}')">Concluir</button>` : ''}
  <button class="btn btn-sm btn-outline-primary me-1"
  onclick="editarTarefa('${u.id}')">Editar</button>
  <button class="btn btn-sm btn-outline-danger"
