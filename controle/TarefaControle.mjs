@@ -27,7 +27,7 @@ export function salvarTarefa(form) {
  const dados = Object.fromEntries(new FormData(form));
  try {
  const id = form.dataset.editId;
- if (!id) dados.concluida = false;
+ dados.concluida = !!form.concluida.checked;
  id ? svc.atualizar(id, dados) : svc.salvar(dados);
  form.reset();
  delete form.dataset.editId;
@@ -43,17 +43,9 @@ export function editarTarefa(id) {
  if (!u) return;
  const form = document.getElementById('form-tarefa');
  form.descricao.value = u.descricao;
- form.concluida.value = u.concluida;
+ form.concluida.checked = u.concluida;
  form.dataset.editId = id;
  form.scrollIntoView({ behavior: 'smooth' });
-}
-
-export function marcarConcluida(id) {
- const u = svc.buscarPorId(id);
- if (!u) return;
- svc.atualizar(id, { descricao: u.descricao, concluida: true });
- renderTabela();
- mostrarAlerta('Tarefa marcada como concluída!', 'success');
 }
 
 export function excluirTarefa(id) {

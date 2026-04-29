@@ -8,6 +8,10 @@ export class TarefaServico {
     return dados ? JSON.parse(dados) : [];
   }
 
+  salvarTodas(tarefas){
+        localStorage.setItem(KEY, JSON.stringify(tarefas));
+  }
+
   buscarPorId(id) {
     return this.listar().find(u => u.id === id) ?? null;
   }
@@ -29,7 +33,7 @@ export class TarefaServico {
     u.id === id ? { ...u, ...dados, id } : u
     );
     localStorage.setItem(KEY, JSON.stringify(lista));
-    return lista.find(u => u.id === id);
+    //return lista.find(u => u.id === id);
   }
  
   excluir(id) {
